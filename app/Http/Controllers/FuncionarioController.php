@@ -61,7 +61,6 @@ class FuncionarioController extends Controller
     {
         $funcionario = Funcionario::findOrFail($id);
         $funcionario->update($request->all());
-
         return $funcionario;
     }
 
