@@ -24,4 +24,6 @@ Route::get('empresa/{id}', 'EmpresaController@show');
 Route::post('empresa', 'EmpresaController@store');
 Route::put('empresa/{id}', 'EmpresaController@update');
 Route::delete('empresa/{id}', 'EmpresaController@delete');
+Route::post('empresa/{id}/add-funcionario', 'EmpresaController@addFuncionario');
+
 

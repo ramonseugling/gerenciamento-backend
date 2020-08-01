@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use App\Funcionario;
 
 class EmpresaController extends Controller
 {
@@ -31,6 +32,21 @@ class EmpresaController extends Controller
         $empresa->delete();
 
         return 204;
+    }
+
+    public function addFuncionario(Request $request, $id) {
+        $funcionarioBuscado = Funcionario::where('cpf', '=', $request->cpf)->firstOrFail();
+        $empresaBuscada = Empresa::find($id);
+        $funcionarioAdicionado = $empresaBuscada->funcionarios()->create([
+            'nome' => $funcionarioBuscado->nome,
+            'login' => $funcionarioBuscado->login,
+            'cpf' => $funcionarioBuscado->cpf,
+            'email' => $funcionarioBuscado->email,
+            'endereco' => $funcionarioBuscado->endereco,
+            'senha' => $funcionarioBuscado->senha
+        ]);
+
+        return $funcionarioAdicionado;
     }
 
 }
