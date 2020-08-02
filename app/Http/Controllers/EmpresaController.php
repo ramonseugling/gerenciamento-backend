@@ -35,15 +35,15 @@ class EmpresaController extends Controller
     }
 
     public function addFuncionario(Request $request, $id) {
-        $funcionarioBuscado = Funcionario::where('cpf', '=', $request->cpf)->firstOrFail();
+        // $funcionarioBuscado = Funcionario::where('cpf', '=', $request->cpf)->firstOrFail();
         $empresaBuscada = Empresa::find($id);
         $funcionarioAdicionado = $empresaBuscada->funcionarios()->create([
-            'nome' => $funcionarioBuscado->nome,
-            'login' => $funcionarioBuscado->login,
-            'cpf' => $funcionarioBuscado->cpf,
-            'email' => $funcionarioBuscado->email,
-            'endereco' => $funcionarioBuscado->endereco,
-            'senha' => $funcionarioBuscado->senha
+            'nome' => $request->nome,
+            'login' => $request->login,
+            'cpf' => $request->cpf,
+            'email' => $request->email,
+            'endereco' => $request->endereco,
+            'senha' => $request->senha
         ]);
 
         return $funcionarioAdicionado;
