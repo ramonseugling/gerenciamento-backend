@@ -41,7 +41,7 @@ Para instalar as dependências do projeto, e funcionar corretamente, rode o coma
 
 Antes de iniciar o servidor, é preciso criar as tabelas no banco de dados. Rode o comando:
 
-- php artisan make:migration 
+- php artisan migrate
 
 Depois de instalado, para rodar o servidor, rode o comando:
 - php artisan serve
