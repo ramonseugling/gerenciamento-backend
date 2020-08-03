@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
-use App\Funcionario;
+use App\Http\Requests\StoreUpdateEmpresaRequest;
 
 class EmpresaController extends Controller
 {
@@ -12,41 +12,30 @@ class EmpresaController extends Controller
         return Empresa::all();
     }
 
+    // Função chamada na listagem das empresas (Recebe como parâmetro o id enviado pelo front)
     public function show($id){
         return Empresa::find($id);
     }
 
-    public function store(Request $request){
+    // Função chamada na criação das empresas (Recebe como parâmetro  a requisição enviado pelo front)
+    public function store(StoreUpdateEmpresaRequest $request){
         return Empresa::create($request->all());
     }
-
-    public function update(Request $request, $id){
+   
+    // Função chamada na edição das empresas (Recebe como parâmetro  a requisição enviado pelo front, e o id)
+    public function update(StoreUpdateEmpresaRequest $request, $id){
         $empresa = Empresa::findOrFail($id);
         $empresa->update($request->all());
 
         return $empresa;
     }
-
+    
+    // Função chamada na deleção das empresas (Recebe como parâmetro  a requisição enviado pelo front, e o id)
     public function delete(Request $request, $id){
         $empresa = Empresa::findOrFail($id);
         $empresa->delete();
 
         return 204;
-    }
-
-    public function addFuncionario(Request $request, $id) {
-        // $funcionarioBuscado = Funcionario::where('cpf', '=', $request->cpf)->firstOrFail();
-        $empresaBuscada = Empresa::find($id);
-        $funcionarioAdicionado = $empresaBuscada->funcionarios()->create([
-            'nome' => $request->nome,
-            'login' => $request->login,
-            'cpf' => $request->cpf,
-            'email' => $request->email,
-            'endereco' => $request->endereco,
-            'senha' => $request->senha
-        ]);
-
-        return $funcionarioAdicionado;
     }
 
 }
