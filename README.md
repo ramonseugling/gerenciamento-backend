@@ -58,3 +58,8 @@ Depois de instalado, para rodar o servidor, rode o comando:
 O Framework Lavarel, depende de alguns requisitos como php >= 7.2.5, JSON PHP Extension entre outras extensões . Certifique-se de instalar tudo corretamente. Segue o link para auxiliar na instalação:
 
 https://laravel.com/docs/7.x/installation
+
+Um plugin necessário também para funcionar a aplicação corretamente é relacionado ao banco de dados que você utilizará. Por exemplo, se utilizar o PostgreSQL, instale:
+
+sudo apt install php-pgsql
+
