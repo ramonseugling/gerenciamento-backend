@@ -16,7 +16,7 @@ A API utiliza das tecnologias abaixo:
 
 ### Variáveis que devem ser configuradas
 
-A API por utilizar um banco de dados PostgreSQl, necessita ser configurada as credenciais de acesso, no arquivo .env do projeto. Utilize o arquivo .env.example como exemplo.
+A API por utilizar um banco de dados PostgreSQl, necessita ser configurada as credenciais de acesso, no arquivo .env do projeto (esse arquivo ainda não está criado, você deve criá-lo). Utilize o arquivo .env.example como exemplo.
 
 O que deve ser configurado:
 
